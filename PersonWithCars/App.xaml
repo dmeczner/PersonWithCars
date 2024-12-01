@@ -1,0 +1,11 @@
+﻿<Application x:Class="PersonWithCars.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:PersonWithCars"
+             StartupUri="View/MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
+
+<!--Scaffold-DbContext 'Data Source=DMECZNER; Initial Catalog=Customer;Integrated Security=true; TrustServerCertificate=True' Microsoft.EntityFrameworkCore.SqlServer -NoOnConfiguring -OutputDir DBHandling -UseDatabaseNames -Context CustomerContext -ContextDir ./ -Force-->

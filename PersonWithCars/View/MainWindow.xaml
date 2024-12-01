@@ -1,0 +1,87 @@
+﻿<Window x:Class="PersonWithCars.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonWithCars.View"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="700">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.Row="0" 
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  x:Name="CustomersDataGrid"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  SelectedItem="{Binding SelectedPerson}"
+                  ItemsSource="{Binding PersonsView}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nr"
+                                    Binding="{Binding Id}"
+                                    IsReadOnly="True"
+                                    Width="25"/>
+                <DataGridTextColumn Header="FirstName"
+                                    Binding="{Binding FirstName}"
+                                    IsReadOnly="True"
+                                    Width="1*"/>
+                <DataGridTextColumn Header="LastName"
+                                  Binding="{Binding LastName}"
+                                  IsReadOnly="True"
+                                  Width="1*"/>
+                <DataGridTextColumn Header="BirthDay"
+                                    Binding="{Binding BirthDay}"
+                                    IsReadOnly="True"
+                                    Width="auto"/>
+                <DataGridTextColumn Header="Address"
+                                    Binding="{Binding PAddress}"
+                                    IsReadOnly="True"
+                                    Width="auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <Button Height="20" Width="100" Content="Add" x:Name="AddPersonButton" Click="AddPersonButton_Click"/>
+            <Button Height="20" Width="100" Content="Update" x:Name="UpdatePersonButton" Click="UpdatePersonButton_Click"/>
+            <Button Height="20" Width="100" Content="Remove" x:Name="RemovePersonButton" Command="{Binding RemovePersonCommand}"/>
+        </StackPanel>
+        <DataGrid Grid.Row="2" 
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  x:Name="CarsDataGrid"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  ItemsSource="{Binding CarsView}"
+                  SelectedItem="{Binding SelectedCar}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nr"
+                                    Binding="{Binding Id}"
+                                    IsReadOnly="True"
+                                    Width="25"/>
+                <DataGridTextColumn Header="CarBrand"
+                                    Binding="{Binding CarBrand}"
+                                    IsReadOnly="True"
+                                    Width="1*"/>
+                <DataGridTextColumn Header="LicensePlate"
+                                    Binding="{Binding LicensePlate}"
+                                    IsReadOnly="True"
+                                    Width="1*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <Button Height="20" Width="100" Content="Add" x:Name="AddCarButton" Click="AddCarButton_Click"/>
+            <Button Height="20" Width="100" Content="Update" x:Name="UpdateCarButton" Click="UpdateCarButton_Click"/>
+            <Button Height="20" Width="100" Content="Remove" x:Name="RemoveCarButton" Command="{Binding RemoveCarCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>
